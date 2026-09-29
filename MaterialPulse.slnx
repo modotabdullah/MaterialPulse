@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MaterialPulse.Application/MaterialPulse.Application.csproj" />
+    <Project Path="src/MaterialPulse.Domain/MaterialPulse.Domain.csproj" />
+    <Project Path="src/MaterialPulse.Infrastructure/MaterialPulse.Infrastructure.csproj" />
+    <Project Path="src/MaterialPulse.Web/MaterialPulse.Web.csproj" />
+  </Folder>
+</Solution>
