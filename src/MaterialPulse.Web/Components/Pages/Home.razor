@@ -1,7 +1,436 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>MaterialPulse - Smart Material & Inventory Management</PageTitle>
 
-<h1>Hello, world!</h1>
+<!-- Import Figtree Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-Welcome to your new app.
+<div class="landing-page">
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-dot"></span>
+            <span class="logo-text">MaterialPulse</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#tech">Tech Stack</a>
+        </nav>
+        <button class="btn-primary">Launch App</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="badge-dot"></span> Built with .NET 10 & Clean Architecture
+        </div>
+        <h1 class="hero-title">
+            Precision Inventory <br/> 
+            <span class="highlight">Pulse Tracking</span> for Industry
+        </h1>
+        <p class="hero-subtitle">
+            A high-performance system for tracking raw materials, managing supplier networks, 
+            and monitoring unit metrics in real-time.
+        </p>
+        <div class="hero-actions">
+            <button class="btn-accent">Explore Demo</button>
+            <button class="btn-outline">View Github Repo</button>
+        </div>
+    </section>
+
+    <!-- System Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Decoupled Architecture</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Units of Measurement</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">&lt;10ms</span>
+            <span class="stat-label">Domain Calculation Speed</span>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="features-section">
+        <h2 class="section-title">Core Capability Highlights</h2>
+        <p class="section-subtitle">Designed from the ground up for reliable supply chain management.</p>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Material Tracking</h3>
+                <p>Categorize and track raw materials by stock levels, minimum thresholds, and accurate unit metrics (Kg, Liters, Meters, Sheets).</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏭</div>
+                <h3>Supplier Management</h3>
+                <p>Maintain one-to-many supplier mappings with direct contact person tracking and historical transaction logs.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Real-Time Blazor UI</h3>
+                <p>Fast, interactive WebAssembly/Server components delivering smooth user experiences with zero context switching.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clean Architecture Showcase (For Professor) -->
+    <section id="architecture" class="architecture-section">
+        <div class="arch-container">
+            <div class="arch-info">
+                <span class="sub-tag">Academic Architecture</span>
+                <h2>Clean Architecture Flow</h2>
+                <p>
+                    Strict inward dependency enforcement guarantees that business domain logic remains completely isolated from external frameworks or database engines.
+                </p>
+            </div>
+            <div class="arch-diagram">
+                <div class="layer layer-web">
+                    <span>1. Web Layer (Blazor UI)</span>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="layer layer-infra">
+                    <span>2. Infrastructure (EF Core & DB)</span>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="layer layer-app">
+                    <span>3. Application (Use Cases)</span>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="layer layer-domain">
+                    <span>4. Domain Layer (Entities & Business Rules)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>MaterialPulse Inventory System • Built with .NET 10 & Blazor</p>
+    </footer>
+</div>
+
+<style>
+    /* Exact Palette Colors from Design */
+    :root {
+        --color-purple: #7C55FB;
+        --color-dark: #22201F;
+        --color-pink: #F871D8;
+        --color-bg: #F4F2FB;
+        --color-white: #FFFFFF;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: 'Figtree', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .landing-page {
+        background-color: var(--color-bg);
+        color: var(--color-dark);
+        min-height: 100vh;
+        padding: 0 5vw;
+    }
+
+    /* Navbar */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: var(--color-dark);
+    }
+
+    .logo-dot {
+        width: 14px;
+        height: 14px;
+        background-color: var(--color-purple);
+        border-radius: 50%;
+    }
+
+    .nav-links a {
+        margin: 0 16px;
+        text-decoration: none;
+        color: var(--color-dark);
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+        color: var(--color-purple);
+    }
+
+    /* Buttons */
+    .btn-primary {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+        border: none;
+        padding: 10px 22px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-purple);
+        transform: translateY(-2px);
+    }
+
+    .btn-accent {
+        background-color: var(--color-purple);
+        color: var(--color-white);
+        border: none;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-accent:hover {
+        background-color: var(--color-pink);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(248, 113, 216, 0.4);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--color-dark);
+        color: var(--color-dark);
+        padding: 12px 26px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+    }
+
+    /* Hero */
+    .hero {
+        text-align: center;
+        padding: 80px 20px 60px 20px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: rgba(124, 85, 251, 0.1);
+        color: var(--color-purple);
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        margin-bottom: 24px;
+    }
+
+    .badge-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-pink);
+        border-radius: 50%;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+    }
+
+    .highlight {
+        color: var(--color-purple);
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: #555;
+        max-width: 650px;
+        margin: 0 auto 36px auto;
+        line-height: 1.5;
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+        display: flex;
+        justify-content: space-around;
+        background-color: var(--color-dark);
+        color: var(--color-white);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 40px 0 80px 0;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-num {
+        display: block;
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--color-pink);
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    /* Cards & Features */
+    .features-section {
+        padding: 40px 0 80px 0;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+    }
+
+    .card {
+        background-color: var(--color-white);
+        padding: 32px;
+        border-radius: 20px;
+        text-align: left;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+
+    .card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    /* Architecture Section */
+    .architecture-section {
+        background-color: var(--color-white);
+        border-radius: 24px;
+        padding: 50px;
+        margin-bottom: 60px;
+    }
+
+    .arch-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .sub-tag {
+        color: var(--color-purple);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .arch-info h2 {
+        font-size: 2rem;
+        margin: 10px 0 16px 0;
+    }
+
+    .arch-info p {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .arch-diagram {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .layer {
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+        border-radius: 12px;
+        font-weight: 700;
+    }
+
+    .layer-web { background-color: rgba(248, 113, 216, 0.2); color: var(--color-dark); }
+    .layer-infra { background-color: rgba(124, 85, 251, 0.2); color: var(--color-dark); }
+    .layer-app { background-color: rgba(34, 32, 31, 0.1); color: var(--color-dark); }
+    .layer-domain { background-color: var(--color-purple); color: var(--color-white); }
+
+    .arrow {
+        color: var(--color-dark);
+        font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 30px 0;
+        border-top: 1px solid rgba(0,0,0,0.06);
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    @@media (max-width: 768px) {
+        .hero-title { font-size: 2.4rem; }
+        .arch-container { grid-template-columns: 1fr; }
+        .stats-bar { flex-direction: column; gap: 20px; }
+    }
+</style>

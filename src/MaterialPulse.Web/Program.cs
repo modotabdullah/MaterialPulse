@@ -1,6 +1,12 @@
 using MaterialPulse.Web.Components;
+using MaterialPulse.Infrastructure.Data;
+using MaterialPulse.Application;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddInfrastructure(
+    builder.Configuration.GetConnectionString("DefaultConnection")!);
+
+builder.Services.AddApplication();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
