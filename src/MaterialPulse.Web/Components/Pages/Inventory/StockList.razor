@@ -1,0 +1,62 @@
+@page "/inventory/stock"
+@rendermode InteractiveServer
+@inject IInventoryService Service
+
+<PageTitle>Stock List</PageTitle>
+
+<h3>Stock List</h3>
+
+@if (items is null)
+{
+    <p>Loading...</p>
+}
+else if (items.Count == 0)
+{
+    <p>No materials found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Category</th>
+                <th class="text-end">Current Stock</th>
+                <th>Unit</th>
+                <th class="text-end">Reorder Point</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in items)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Category</td>
+                    <td class="text-end">@item.CurrentStock.ToString("N2")</td>
+                    <td>@item.Unit</td>
+                    <td class="text-end">@item.ReorderPoint.ToString("N2")</td>
+                    <td>
+                        @if (item.IsLow)
+                        {
+                            <span class="badge bg-danger">Low</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">OK</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<StockItemDto>? items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await Service.GetStockListAsync();
+    }
+}
